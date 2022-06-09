@@ -59,6 +59,7 @@ class MainApplication: Application() {
     updateSyncJob(false)
   }
 
+  @SuppressLint("QueryPermissionsNeeded")
   private fun listenApplications() {
     registerReceiver(object: BroadcastReceiver() {
       override fun onReceive(context: Context, intent: Intent) {

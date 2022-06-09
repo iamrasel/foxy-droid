@@ -1,6 +1,7 @@
 package nya.kitsunyan.foxydroid
 
 import android.content.Intent
+import com.squareup.picasso.BuildConfig
 import nya.kitsunyan.foxydroid.screen.ScreenActivity
 
 class MainActivity: ScreenActivity() {

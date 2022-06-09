@@ -11,16 +11,16 @@
   <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
   <application
-    android:name=".MainApplication"
+    android:name="nya.kitsunyan.foxydroid.MainApplication"
     android:label="@string/application_name"
     android:icon="@mipmap/ic_launcher"
     android:supportsRtl="true"
-    android:allowBackup="false"
     android:theme="@style/Theme.Main.Light"
     tools:ignore="GoogleAppIndexingWarning">
 
     <receiver
-      android:name=".MainApplication$BootReceiver">
+      android:name="nya.kitsunyan.foxydroid.MainApplication$BootReceiver"
+        android:exported="false">
 
       <intent-filter>
         <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -29,9 +29,10 @@
     </receiver>
 
     <activity
-      android:name=".MainActivity"
+      android:name="nya.kitsunyan.foxydroid.MainActivity"
       android:launchMode="singleTask"
-      android:windowSoftInputMode="adjustResize">
+      android:windowSoftInputMode="adjustResize"
+      android:exported="true">
 
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -69,21 +70,21 @@
     </activity>
 
     <service
-      android:name=".service.SyncService" />
+      android:name="nya.kitsunyan.foxydroid.service.SyncService" />
 
     <service
-      android:name=".service.SyncService$Job"
+      android:name="nya.kitsunyan.foxydroid.service.SyncService$Job"
       android:exported="true"
       android:permission="android.permission.BIND_JOB_SERVICE" />
 
     <service
-      android:name=".service.DownloadService" />
+      android:name="nya.kitsunyan.foxydroid.service.DownloadService" />
 
     <receiver
-      android:name=".service.DownloadService$Receiver" />
+      android:name="nya.kitsunyan.foxydroid.service.DownloadService$Receiver" />
 
     <provider
-      android:name=".content.Cache$Provider"
+      android:name="nya.kitsunyan.foxydroid.content.Cache$Provider"
       android:authorities="${applicationId}.provider.cache"
       android:exported="false"
       android:grantUriPermissions="true" />
