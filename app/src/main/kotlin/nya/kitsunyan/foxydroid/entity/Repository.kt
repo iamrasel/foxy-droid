@@ -95,24 +95,30 @@ data class Repository(val id: Long, val address: String, val mirrors: List<Strin
     }
 
     val defaultRepositories = listOf(run {
+      defaultRepository("https://divestos.org/fdroid/official", "DivestOS Official", "",
+        21, false, "E4BE8D6ABFA4D9D4FEEF03CDDA7FF62A73FD64B75566F6DD4E5E577550BE8467", "")
+    }, run {
       defaultRepository("https://f-droid.org/repo", "F-Droid", "The official F-Droid Free Software repository. " +
-        "Everything in this repository is always built from the source code.",
+              "Everything in this repository is always built from the source code.",
         21, true, "43238D512C1E5EB2D6569F4A3AFBF5523418B82E0A3ED1552770ABB9A9C9CCAB", "")
     }, run {
-      defaultRepository("https://f-droid.org/archive", "F-Droid Archive", "The archive of the official F-Droid Free " +
-        "Software repository. Apps here are old and can contain known vulnerabilities and security issues!",
-        21, false, "43238D512C1E5EB2D6569F4A3AFBF5523418B82E0A3ED1552770ABB9A9C9CCAB", "")
-    }, run {
-      defaultRepository("https://guardianproject.info/fdroid/repo", "Guardian Project Official Releases", "The " +
-        "official repository of The Guardian Project apps for use with the F-Droid client. Applications in this " +
-        "repository are official binaries built by the original application developers and signed by the same key as " +
-        "the APKs that are released in the Google Play Store.",
+      defaultRepository("https://guardianproject.info/fdroid/repo", "Guardian Project Official Releases", "",
         21, false, "B7C2EEFD8DAC7806AF67DFCD92EB18126BC08312A7F2D6F3862E46013C7A6135", "")
     }, run {
-      defaultRepository("https://guardianproject.info/fdroid/archive", "Guardian Project Archive", "The official " +
-        "repository of The Guardian Project apps for use with the F-Droid client. This contains older versions of " +
-        "applications from the main repository.", 21, false,
-        "B7C2EEFD8DAC7806AF67DFCD92EB18126BC08312A7F2D6F3862E46013C7A6135", "")
+      defaultRepository("https://apt.izzysoft.de/fdroid/repo", "IzzyOnDroid F-Droid Repo", "",
+        21, false, "3BF0D6ABFEAE2F401707B6D966BE743BF0EEE49C2561B9BA39073711F628937A", "")
+    }, run {
+      defaultRepository("https://store.nethunter.com/repo", "Kali NetHunter App Store", "",
+        21, false, "7E418D34C3AD4F3C37D7E6B0FACE13332364459C862134EB099A3BDA2CCF4494", "")
+    }, run {
+      defaultRepository("https://cdn.kde.org/android/fdroid/repo", "KDE Android Nightly builds", "",
+        21, false, "B3EBE10AFA6C5C400379B34473E843D686C61AE6AD33F423C98AF903F056523F", "")
+    }, run {
+      defaultRepository("https://microg.org/fdroid/repo", "microG F-Droid repo", "",
+        21, false, "9BD06727E62796C0130EB6DAB39B73157451582CBD138E86C468ACC395D14165", "")
+    }, run {
+      defaultRepository("https://nanolx.org/fdroid/repo", "Nanolx F-Droid Repo", "",
+        21, false, "862ED9F13A3981432BF86FE93D14596B381D75BE83A1D616E2D44A12654AD015", "")
     })
   }
 }
