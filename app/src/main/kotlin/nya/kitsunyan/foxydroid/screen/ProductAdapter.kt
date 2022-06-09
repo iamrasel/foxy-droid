@@ -15,7 +15,6 @@ import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Parcel
 import android.text.SpannableStringBuilder
-import android.text.format.DateFormat
 import android.text.style.BulletSpan
 import android.text.style.ClickableSpan
 import android.text.style.RelativeSizeSpan
@@ -52,15 +51,17 @@ import nya.kitsunyan.foxydroid.network.PicassoDownloader
 import nya.kitsunyan.foxydroid.utility.KParcelable
 import nya.kitsunyan.foxydroid.utility.PackageItemResolver
 import nya.kitsunyan.foxydroid.utility.Utils
-import nya.kitsunyan.foxydroid.utility.extension.android.*
+import nya.kitsunyan.foxydroid.utility.extension.android.Android
 import nya.kitsunyan.foxydroid.utility.extension.resources.*
-import nya.kitsunyan.foxydroid.utility.extension.text.*
+import nya.kitsunyan.foxydroid.utility.extension.text.formatSize
+import nya.kitsunyan.foxydroid.utility.extension.text.nullIfEmpty
 import nya.kitsunyan.foxydroid.widget.ClickableMovementMethod
 import nya.kitsunyan.foxydroid.widget.DividerItemDecoration
 import nya.kitsunyan.foxydroid.widget.StableRecyclerAdapter
 import java.lang.ref.WeakReference
+import java.text.SimpleDateFormat
 import java.util.Locale
-import kotlin.math.*
+import kotlin.math.roundToInt
 
 class ProductAdapter(private val callbacks: Callbacks, private val columns: Int):
   StableRecyclerAdapter<ProductAdapter.ViewType, RecyclerView.ViewHolder>() {
@@ -453,7 +454,7 @@ class ProductAdapter(private val callbacks: Callbacks, private val columns: Int)
   }
 
   private class ReleaseViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    val dateFormat = DateFormat.getDateFormat(itemView.context)!!
+    val dateFormat: SimpleDateFormat = SimpleDateFormat.getDateInstance() as SimpleDateFormat
 
     val version = itemView.findViewById<TextView>(R.id.version)!!
     val status = itemView.findViewById<TextView>(R.id.status)!!
