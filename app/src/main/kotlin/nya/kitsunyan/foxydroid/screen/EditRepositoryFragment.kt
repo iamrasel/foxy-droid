@@ -149,7 +149,7 @@ class EditRepositoryFragment(): ScreenFragment() {
 
       override fun afterTextChanged(s: Editable) {
         val inputString = s.toString()
-        val outputString = inputString.toUpperCase(Locale.US)
+        val outputString = inputString.uppercase(Locale.US)
           .filter(validChar).windowed(2, 2, true).take(32).joinToString(separator = " ")
         if (inputString != outputString) {
           val inputStart = logicalPosition(inputString, Selection.getSelectionStart(s))
@@ -253,6 +253,7 @@ class EditRepositoryFragment(): ScreenFragment() {
     checkDisposable = null
   }
 
+  @Deprecated("Deprecated in Java")
   override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)
 

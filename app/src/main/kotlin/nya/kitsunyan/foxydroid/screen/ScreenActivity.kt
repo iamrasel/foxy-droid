@@ -150,6 +150,7 @@ abstract class ScreenActivity: FragmentActivity() {
       ?.hideSoftInputFromWindow((currentFocus ?: window.decorView).windowToken, 0)
   }
 
+  @Deprecated("Deprecated in Java")
   override fun onAttachFragment(fragment: Fragment) {
     super.onAttachFragment(fragment)
     hideKeyboard()

@@ -29,6 +29,7 @@ class ObservableCursor(cursor: Cursor, private val observable: (register: Boolea
     contentObservable.unregisterObserver(observer)
   }
 
+  @Deprecated("Deprecated in Java")
   @Suppress("DEPRECATION")
   override fun requery(): Boolean {
     if (!registered) {
@@ -38,6 +39,7 @@ class ObservableCursor(cursor: Cursor, private val observable: (register: Boolea
     return super.requery()
   }
 
+  @Deprecated("Deprecated in Java")
   @Suppress("DEPRECATION")
   override fun deactivate() {
     super.deactivate()

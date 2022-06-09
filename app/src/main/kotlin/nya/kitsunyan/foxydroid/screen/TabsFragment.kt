@@ -348,6 +348,7 @@ class TabsFragment: ScreenFragment() {
     }
   }
 
+  @Deprecated("Deprecated in Java")
   override fun onAttachFragment(childFragment: Fragment) {
     super.onAttachFragment(childFragment)
 
@@ -548,6 +549,9 @@ class TabsFragment: ScreenFragment() {
 
     override fun setAlpha(alpha: Int) = Unit
     override fun setColorFilter(colorFilter: ColorFilter?) = Unit
+    @Deprecated("Deprecated in Java",
+      ReplaceWith("PixelFormat.TRANSLUCENT", "android.graphics.PixelFormat")
+    )
     override fun getOpacity(): Int = PixelFormat.TRANSLUCENT
   }
 

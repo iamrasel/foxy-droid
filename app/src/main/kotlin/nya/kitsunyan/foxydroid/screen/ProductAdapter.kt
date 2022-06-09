@@ -579,8 +579,9 @@ class ProductAdapter(private val callbacks: Callbacks, private val columns: Int)
   private var product: Product? = null
   private var installedItem: InstalledItem? = null
 
+  @SuppressLint("NotifyDataSetChanged")
   fun setProducts(context: Context, packageName: String,
-    products: List<Pair<Product, Repository>>, installedItem: InstalledItem?) {
+                  products: List<Pair<Product, Repository>>, installedItem: InstalledItem?) {
     val productRepository = Product.findSuggested(products, installedItem) { it.first }
     items.clear()
 
@@ -1097,7 +1098,7 @@ class ProductAdapter(private val callbacks: Callbacks, private val columns: Int)
             prefixes.find { permission.name.startsWith(it) }?.let {
               val transform = permission.name.substring(it.length)
               if (transform.matches("[A-Z_]+".toRegex())) {
-                transform.split("_").joinToString(separator = " ") { it.toLowerCase(Locale.US) }
+                transform.split("_").joinToString(separator = " ") { it.lowercase(Locale.US) }
               } else {
                 null
               }
@@ -1106,7 +1107,7 @@ class ProductAdapter(private val callbacks: Callbacks, private val columns: Int)
           if (label == null) {
             Pair(false, permission.name)
           } else {
-            Pair(true, label.first().toUpperCase() + label.substring(1, label.length))
+            Pair(true, label.first().uppercaseChar() + label.substring(1, label.length))
           }
         }
         val builder = SpannableStringBuilder()
@@ -1171,7 +1172,7 @@ class ProductAdapter(private val callbacks: Callbacks, private val columns: Int)
         holder.signature.visibility = if (item.showSignature && item.release.signature.isNotEmpty())
           View.VISIBLE else View.GONE
         if (item.showSignature && item.release.signature.isNotEmpty()) {
-          val bytes = item.release.signature.toUpperCase(Locale.US).windowed(2, 2, false).take(8)
+          val bytes = item.release.signature.uppercase(Locale.US).windowed(2, 2, false).take(8)
           val signature = bytes.joinToString(separator = " ")
           val builder = SpannableStringBuilder(context.getString(R.string.signature_FORMAT, signature))
           val index = builder.indexOf(signature)
