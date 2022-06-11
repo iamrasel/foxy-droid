@@ -1,8 +1,4 @@
 buildscript {
-  ext.versions = [
-    android: '7.2.1',
-    kotlin: '1.7.0'
-  ]
 
   repositories {
     google()
@@ -10,8 +6,8 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:' + versions.android
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:' + versions.kotlin
+    classpath 'com.android.tools.build:gradle:7.2.1'
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0'
   }
 }
 
@@ -20,4 +16,5 @@ allprojects {
     google()
     mavenCentral()
   }
+  
 }
